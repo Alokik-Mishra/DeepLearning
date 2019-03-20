@@ -20,7 +20,7 @@ ECBM4040 is a 1 semester course covering deep learning theory and implementation
 * Convolutional neural networks (CNN) and image classification
 * Recurrent neural networks (RNN) and LSTMs
 * Autoencoders
-* Generative adversarial networks (GANS)
+* Generative adversarial networks (GANs)
 
 <a name="tech"></a>
 ## Tech/Frameworks
