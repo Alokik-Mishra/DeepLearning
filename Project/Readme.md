@@ -6,9 +6,9 @@ In this project, I attempt to reproduce the results from the paper A Neural Netw
 
 Below images are used to get the result images. Description of their purpose is as follows. All the images are saved inside Data folder  
 
-#### Neckarfront.jpg -- Used as a content image 
-#### The_Starry_Night.jpg --Used as a style image 
-#### Der_Schrie.jpg --  Used as another style image.
+* Content image: Neckarfront <img src="/Project/Data/Neckarfront.jpeg" width="124">
+* Style image 1: The Starry Night <img src="/Project/Data/The_Starry_Night.jpeg" width="112">
+* Style image 2: Der Schrie <img src="/Project/Data/Der_Schrie.jpg" width="112">
 
  I use a pre-trained model - VGG19 'imagenet-vgg-verydeep-19.mat' to get the optimized weights and biases.
  Source of vgg-19 : http://www.vlfeat.org/matconvnet/pretrained/  
@@ -21,6 +21,8 @@ Below images are used to get the result images. Description of their purpose is 
 
 Hence, I am optimizing the total_loss twice - to create the result of the original paper-- content + style -- and to create the result of extension of model -- content + style1 +style2
 
-### output2499_1.png -- Output of the first run (content +style)
-### output2499_2.png -- Output of the second run (content +style1 + style2)
+### output2499_1.png -- Output of the first run (content + style1)
+<img src="/Project/output2499_1.png" width="112">
 
+### output2499_2.png -- Output of the second run (content + style1 + style2)
+<img src="/Project/output2499_2.png" width="112">
