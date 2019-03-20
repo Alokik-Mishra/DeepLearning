@@ -83,7 +83,7 @@ In the last part of the assignment I use PCA to look at whether dimensionality r
 
 <img src="/Assignment1/images/PCA_orig.png" width="250"> <img src="/Assignment1/images/PCA.png" width="250">  <img src="/Assignment1/images/PCA_loadings.png" width="250"> 
 
-The images above show the decompsition of the orginal images (left), each of the 15 principal components (center), and the recompiled image with the factor loadings (right). 
+The images above show the orginal images (left), the principal components (center), and the recompiled image with the factor loadings (right). 
 
 ```python
 model = MLP(input_dim=1500, hidden_dims=[100, 100], num_classes=10, reg=0.1, weight_scale=1e-3)
