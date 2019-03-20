@@ -11,7 +11,7 @@
 
 <a name="desc"></a>
 ## Course Description
-ECBM4040 is a 1 semester course covering deep learning theory and implementation from both basic libraries and tensorflow. The course covers the following topics:
+ECBM4040 is a 1 semester course covering deep learning theory and implementation both from scratch and using tensorflow. The course covers the following topics:
 
 * Machine Learning, representation learning, and neural nets
 * Network architecure, backprop, and loss functions
@@ -40,6 +40,10 @@ In the first task, I build linear SVM and softmax classifiers using sdg optimiza
 <img src="/Assignment1/images/LinSVM.png" width="354">  <img src="/Assignment1/images/Softmax.png" width="354">
 
 In both cases I use a regularization parameter of 1e-5 and a learning rate of 1e-7. While the charts show that the loss is first order lower in the Softmax, after 1500 iterations, the validation accuracy of the SVM at 0.3 is higher than that of the softmax classfier at 0.23. The runtime for both models with 1500 iterations is negligible.
+
+I then build a multilayer perceptron using the same data from scratch and check my code using a simple version built in tensorflow. Using a two layer network, I get the following classification performance.
+
+<img src="/Assignment1/images/twolayernetwork.png" width="354">
 
 
 
