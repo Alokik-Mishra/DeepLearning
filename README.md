@@ -45,5 +45,57 @@ I then build a multilayer perceptron using the same data from scratch and check 
 
 <img src="/Assignment1/images/twolayernetwork.png" width="354">
 
+The network architecture is as follows
 
+```python
+model = TwoLayerNet(input_dim=3072, hidden_dim=100, num_classes=10, reg=1e-4, weight_scale=1e-3)
+num_epoch = 10
+batch_size = 500
+lr = 5e-4
+```
+This achieves a validation set classification accuracy of 0.449 and a test set accuracy of 0.436.
 
+I then echance the model by increasing the width of the hidden layer in an attempt to get at least 50% testing set accuracy. 
+
+```python
+model = TwoLayerNet(input_dim=3072, hidden_dim=200, num_classes=10, reg=1e-4, weight_scale=1e-3)
+num_epoch = 10
+batch_size = 100
+lr = 5e-4
+```
+The model performance can be seen below.
+
+<img src="/Assignment1/images/twolayernetwork_enchanced.png" width="354">
+
+The model reaches a test set accuracy of 0.51 which meets the 50% benchmark I wanted.
+Next I change the architecture by decreasing the width of the hidden layer, but adding a layer and adjusting some other parameters:
+
+```python
+model = MLP(input_dim=3072, hidden_dims=[100, 100], num_classes=10, reg=0.1, weight_scale=1e-3)
+num_epoch = 10
+batch_size = 500
+lr = 1e-2
+```
+
+While the new model does better on the training set classfication, it only achieves a testing set accuracy of 0.45. I conclude the section by replicating the net architecture in tensorflow.
+
+In the last part of the assignment I use PCA to look at whether dimensionality reduction help with the performance of the MLP. 
+
+<img src="/Assignment1/images/PCA_orig.png" width="250"> <img src="/Assignment1/images/PCA.png" width="250">  <img src="/Assignment1/images/PCA_loadings.png" width="250"> 
+
+The images above show the decompsition of the orginal images (left), each of the 15 principal components (center), and the recompiled image with the factor loadings (right). 
+
+```python
+model = MLP(input_dim=1500, hidden_dims=[100, 100], num_classes=10, reg=0.1, weight_scale=1e-3)
+num_epoch = 10
+batch_size = 500
+lr = 1e-2
+```
+The model with the above architecture on the reduced dimension data underperforms with a validation set accuracy of only 0.28.
+
+Finally, I compare the well known tSNE vislizations of the raw data with the data after running it through a two layer network. The two versions can be compared below, with the raw data version (left) being much more noisy than the one after the two layer network (right). Implemening a 100 iterations for both involves a runtime of 23 secs for the raw data and 24 secs for the data after running it through the model.
+
+<img src="/Assignment1/images/tSNE1.png" width="354"> <img src="/Assignment1/images/tSNE2.png" width="354"> 
+
+<a name="as2"></a>
+## Assignment 2
