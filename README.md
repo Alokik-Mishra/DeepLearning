@@ -26,6 +26,7 @@ ECBM4040 is a 1 semester course covering deep learning theory and implementation
 ## Tech/Frameworks
 Most of the analysis is done using Jupyter Notebooks in python 3. Util files are .py. Most of the code uses basic libraries including numpy, and matplotlib.
 Some of the models are made using the tensorflow API and displayed using tensorboard.
+Most of the implmentation was done on the local machine but some of the more computationally intensive models were run on the Google cloud platform (GCP) using coupons provided by the class.
 
 <a name="as1"></a>
 ## Assignment 1
@@ -168,3 +169,5 @@ The last part of the assignment involves experimeting with various data augmenta
 
 <a name="finpro"></a>
 ## Final Project
+
+In the final project for the class we were asked to recreate an existing paper, and if possible provide some extensions to the work. The paper I chose to recreate was titled [A Neural Algorithm of Artistic Style](https://arxiv.org/pdf/1508.06576.pdf) (Gatys et. al, 2015). The paper used the VGG-19 CNN parameters to combine the content of an image with the style of another one. This was done using weights from different layers.
