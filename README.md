@@ -1,5 +1,5 @@
 # Deep Learning
-### Fall 2018 - Electrical Enginerring, Columbia Univesity
+### Fall 2018 - Electrical Engineering, Columbia Univesity
 ### Prof. Zoran Kostic
 
 ## Overview
