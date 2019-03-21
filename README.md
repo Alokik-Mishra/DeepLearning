@@ -81,7 +81,7 @@ While the new model does better on the training set classfication, it only achie
 
 In the last part of the assignment I use PCA to look at whether dimensionality reduction help with the performance of the MLP. 
 
-<img src="/Assignment1/images/PCA_orig.png" width="250"> <img src="/Assignment1/images/PCA.png" width="250">  <img src="/Assignment1/images/PCA_loadings.png" width="250"> 
+<img src="/Assignment1/images/PCA_orig.png" width="275"> <img src="/Assignment1/images/PCA.png" width="275">  <img src="/Assignment1/images/PCA_loadings.png" width="275"> 
 
 The images above show the orginal images (left), the principal components (center), and the recompiled image with the factor loadings (right). 
 
@@ -109,7 +109,7 @@ model = MLP(input_dim=3072, hidden_dims=[100, 100], num_classes=10, l2_reg=0.0, 
 
 The results can be seen below:
 
-<img src="/Assignment2/images/opt_training.png" width="250"> <img src="/Assignment2/images/opt_accuracy.png" width="250"> <img src="/Assignment2/images/opt_validation_accuracy.png" width="250"> 
+<img src="/Assignment2/images/opt_training.png" width="275"> <img src="/Assignment2/images/opt_accuracy.png" width="275"> <img src="/Assignment2/images/opt_validation_accuracy.png" width="275"> 
 
 In all three measures, but most importantly the validation accuracy, the RMSprop alogrithm to optimize the gradient seems to work best. It should be noted that this is not a foolproof assesment, there are many pros and cons to each of the algorithms used, and while RMSprop worked best here, it is not be the universally preferred algorithm.
 
@@ -125,7 +125,7 @@ optimizer = AdamOptim(model)
 
 The results of various different dropout rates can be seen below:
 
-<img src="/Assignment2/images/dropout_loss.png" width="250"> <img src="/Assignment2/images/dropout_accuracy.png" width="250"> <img src="/Assignment2/images/dropout_accuracy_validation.png" width="250"> 
+<img src="/Assignment2/images/dropout_loss.png" width="275"> <img src="/Assignment2/images/dropout_accuracy.png" width="275"> <img src="/Assignment2/images/dropout_accuracy_validation.png" width="275"> 
 
 Certain patterns emerge when looking at the validation set accruacy. Initially the low dropout rates underperform, however they do eventually catch up to the other higher rates, and ultimately the best performing model is the 0.1 rate. with a validation accuracy of 0.358 (although this is marginal, the next highest a rate of 0.5 with an accuracy of 0.352).
 
