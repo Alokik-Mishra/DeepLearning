@@ -127,8 +127,42 @@ The results of various different dropout rates can be seen below:
 
 <img src="/Assignment2/images/dropout_loss.png" width="250"> <img src="/Assignment2/images/dropout_accuracy.png" width="250"> <img src="/Assignment2/images/dropout_accuracy_validation.png" width="250"> 
 
-Certain pattens emerge when looking at the validation set accruacy. Initially the low dropout rates underperform, however they do eventually catch up to the other higher rates, and ultimately the best performing model is the 0.1 rate. with a validation accuracy of 0.358 (although this is marginal, the next highest a rate of 0.5 with an accuracy of 0.352).
+Certain patterns emerge when looking at the validation set accruacy. Initially the low dropout rates underperform, however they do eventually catch up to the other higher rates, and ultimately the best performing model is the 0.1 rate. with a validation accuracy of 0.358 (although this is marginal, the next highest a rate of 0.5 with an accuracy of 0.352).
 
 The other regularization technique I examine is batch normalization. I implement batch normalization on both a shallow and a deep mlp and find that the beneficial effects in terms of validation accuracy are much higher on deeper architectures. 
 
-The next part of the assignment involves building a CNN. I first build the model from scratch using only numpy to build convolution and max pool layers. Then i code a model using tensoflow. 
+The next part of the assignment involves building a CNN. I first build the model from scratch using only numpy to build convolution and max pool layers. Then I code a model using tensoflow. Below I show a screenshot of the tensorboard display used to visualize the CNN.
+
+<img src="/Assignment2/images/Assignment2_cnn.png" width="650"> 
+
+I use the hyperparameters shown below and achieve a validation set accuracy of 64.5 percent:
+
+```python
+my_training(X_train, y_train, X_val, y_val, 
+         conv_featmap=[6,18],
+         fc_units=[128],
+         conv_kernel_size=[3,5],
+         pooling_size=[2,2],
+         l2_norm=0.05,
+         seed=235,
+         learning_rate = 1e-2,
+         epoch=25,
+         batch_size=245,
+         verbose=True,
+         pre_trained_model=None)
+ ``` 
+ 
+The last part of the assignment involves experimeting with various data augmentation techniques of particular relevance to image recognition and CNNs. First I display a subset of the original image:
+ 
+ <img src="/Assignment2/images/orig.png" width="350">  
+ 
+ Now I will show exmaples of the various techniques.
+ 
+ <img src="/Assignment2/images/flip.png" width="350">  <img src="/Assignment2/images/translation.png" width="350">
+ 
+ <img src="/Assignment2/images/rotation.png" width="350">  <img src="/Assignment2/images/noisy.png" width="350">
+ 
+ Above there are example of a vertical and horizontal flip (top left), a translation (top right), a rotation (bottom left) and adding random noise to the image (bottom right). These technqiues allow for an increase in the size of the labelled data.
+ 
+ I train a CNN model of the LeNet structure in the pervious part of the task and get a validation set accuracy of 33.5, which is surpsingly lower than the unaugmented dataset.
+
