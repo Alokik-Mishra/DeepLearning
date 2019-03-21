@@ -166,3 +166,5 @@ The last part of the assignment involves experimeting with various data augmenta
  
  I train a CNN model of the LeNet structure in the pervious part of the task and get a validation set accuracy of 33.5, which is surpsingly lower than the unaugmented dataset.
 
+<a name="finpro"></a>
+## Final Project
