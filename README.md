@@ -68,7 +68,7 @@ The model performance can be seen below.
 <img src="/Assignment1/images/twolayernetwork_enchanced.png" width="354">
 
 The model reaches a test set accuracy of 0.51 which meets the 50% benchmark I wanted.
-Next I change the architecture by decreasing the width of the hidden layer, but adding a layer and adjusting some other parameters:
+Next I change the architecture by decreasing the width of the hidden layer, but adding a layer and adjusting some other hyperparameters:
 
 ```python
 model = MLP(input_dim=3072, hidden_dims=[100, 100], num_classes=10, reg=0.1, weight_scale=1e-3)
@@ -99,3 +99,36 @@ Finally, I compare the well known tSNE vislizations of the raw data with the dat
 
 <a name="as2"></a>
 ## Assignment 2
+In this assignment, I start out by comparing different optimization techniques such as sgd, rmsprop, adam, etc. and then move on to experiment with two different regularization techniques, dropout and batch normalization. Next I build a convolutional neural net, both from scratch and with tensorflow. Finally I look at data augmentation techniques often used in image recongition.
+
+The optimization techniques I compare are SGD, SGD with momentum, RMSprop, Adam, and Nadam. I make sure to use the same MLP model for all four with the same hyperparameters:
+
+```python
+model = MLP(input_dim=3072, hidden_dims=[100, 100], num_classes=10, l2_reg=0.0, weight_scale=1e-3)
+```
+
+The results can be seen below:
+
+<img src="/Assignment2/images/opt_training.png" width="250"> <img src="/Assignment2/images/opt_accuracy.png" width="250"> <img src="/Assignment2/images/opt_validation_accuracy.png" width="250"> 
+
+In all three measures, but most importantly the validation accuracy, the RMSprop alogrithm to optimize the gradient seems to work best. It should be noted that this is not a foolproof assesment, there are many pros and cons to each of the algorithms used, and while RMSprop worked best here, it is not be the universally preferred algorithm.
+
+I next look at dropout and batch normalization which are two regularization techniques that help to minimize generalization error. 
+
+I compare various 'dropout rates' while keeping the MLP model and its hyperparameters constant, as well as sticking with the Adam optimizer algorithm.
+
+```python
+model = MLP(input_dim=3072, hidden_dims=[200], num_classes=10, 
+            weight_scale=1e-3, l2_reg=0.0, dropout_config=dropout_config)
+optimizer = AdamOptim(model)
+```
+
+The results of various different dropout rates can be seen below:
+
+<img src="/Assignment2/images/dropout_loss.png" width="250"> <img src="/Assignment2/images/dropout_accuracy.png" width="250"> <img src="/Assignment2/images/dropout_accuracy_validation.png" width="250"> 
+
+Certain pattens emerge when looking at the validation set accruacy. Initially the low dropout rates underperform, however they do eventually catch up to the other higher rates, and ultimately the best performing model is the 0.1 rate. with a validation accuracy of 0.358 (although this is marginal, the next highest a rate of 0.5 with an accuracy of 0.352).
+
+The other regularization technique I examine is batch normalization. I implement batch normalization on both a shallow and a deep mlp and find that the beneficial effects in terms of validation accuracy are much higher on deeper architectures. 
+
+The next part of the assignment involves building a CNN. I first build the model from scratch using only numpy to build convolution and max pool layers. Then i code a model using tensoflow. 
