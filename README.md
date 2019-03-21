@@ -170,4 +170,24 @@ The last part of the assignment involves experimeting with various data augmenta
 <a name="finpro"></a>
 ## Final Project
 
-In the final project for the class we were asked to recreate an existing paper, and if possible provide some extensions to the work. The paper I chose to recreate was titled [A Neural Algorithm of Artistic Style](https://arxiv.org/pdf/1508.06576.pdf) (Gatys et. al, 2015). The paper used the VGG-19 CNN parameters to combine the content of an image with the style of another one. This was done using weights from different layers.
+In the final project for the class we were asked to recreate an existing paper, and if possible provide some extensions to the work. The paper I chose to recreate was titled [A Neural Algorithm of Artistic Style](https://arxiv.org/pdf/1508.06576.pdf) (Gatys et. al, 2015). The paper used the VGG-19 CNN parameters to combine the content of an image with the style of another one. This was done using weights from different layers. The architecture of the vgg-19 can be seen below.
+
+ <img src="/Project/Images/vgg-19.png" width="600">
+ 
+In the original paper, the image of the Neckarfront was used as content and combined with various styles. Examples of the outcomes from the original paper:
+ 
+ <img src="/Project/Data/Neckarfront.jpeg" width="350" height="450"> <img src="/Project/Images/orig_examples.png" width="350" height="450">
+ 
+I attempted to reproduce the outcomes, albeit at a time and computational handicap. The work process can be seen below:
+ 
+ <img src="/Project/Images/flowchart.png" width="500" height="450">
+ 
+An extension I offered was using multiple style images ratehr than a single one. A straightforward way to achieve this was to adjust the loss function to account for a vector of 'style' weights associated with different inputs (style images). The results, both for a single style image and mutliple styles images can be seen below:
+ 
+  <img src="/Project/output2499_1.png" width="400" height="350">   <img src="/Project/output2499_2.png" width="400" height="350">
+  
+   <img src="/Project/Data/The_Starry_Night.jpeg" width="250" height="250">   <img src="/Project/Data/Neckarfront.jpeg" width="300" height="250"> <img src="/Project/Data/Der_Schrie.jpg" width="250" height="250">
+  
+In the single style image (top left) I combine the Neckarfront with The Starry Night (bottom left), and in the multiple style combination (top right), I add Der Schrie (bottom right) as a second style image in addition to The Starry Night.
+
+While not explicitly related to my thematic interests, the project was interesting and I found image synthesis in general to be quite fascinating. The field has been greatly improved with the use of autoencoders and GANs.
